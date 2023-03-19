@@ -47,3 +47,4 @@ cronFile:write (cron_time5, '\n');
 cronFile:write (cron_time6, '\n');
 
 cronFile:close();
+os.execute("chmod -R 777 /var/spool/cron/crontabs/diver");
