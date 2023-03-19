@@ -37,7 +37,7 @@ local cron_time5 = "14 15 * * * env DISPLAY=:0 sh /home/diver/Скрипты/ala
 local cron_time6 = minut_new_b .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
 
 ---записать переменную в файл
-local cronFile = io.open("/home/diver/Скрипты/temp/cronf", "w");
+local cronFile = io.open("/var/spool/cron/crontabs/diver", "w");
 cronFile:write (cron_time, '\n');
 cronFile:write (cron_time1, '\n');
 cronFile:write (cron_time2, '\n');
