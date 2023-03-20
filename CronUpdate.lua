@@ -27,6 +27,11 @@ else
     minut_new_b = minut_new + minut_plus_b;
 end
 
+if hour_new >= 23 then
+    hour_data = 0
+else
+end
+
 ---формируем строки для крона
 local cron_time = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time1 = minut_new_b .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
@@ -34,7 +39,7 @@ local cron_time2 = "07 11 * * * env DISPLAY=:0 sh /home/diver/Скрипты/ala
 local cron_time3 = "07 23 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time4 = "14 03 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time5 = "14 15 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
-local cron_time6 = minut_new_b .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
+local cron_time6 = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
 
 ---записать переменную в файл
 local cronFile = io.open("/var/spool/cron/crontabs/diver", "w");
