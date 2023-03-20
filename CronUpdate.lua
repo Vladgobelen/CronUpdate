@@ -19,12 +19,10 @@ if minut_data >= 30 then
 --если количество текущих минут больше 30, то к часам прибавляем 3, а от текущего времени отнимаем 30 минут
     hour_new = hour_data + hour_plus_b;
     minut_new = minut_data - minut_plus;
-    minut_new_b = minut_new + minut_plus_b;
 else
 --если количество текущих минут меньше 30, то к часам прибавляем 2, а к текущим минутам 30
     hour_new = hour_data + hour_plus;
     minut_new = minut_data + minut_plus;
-    minut_new_b = minut_new + minut_plus_b;
 end
 
 if hour_new >= 23 then
@@ -32,14 +30,16 @@ if hour_new >= 23 then
 else
 end
 
+minut_new_b = minut_data + minut_plus_b;
+
 ---формируем строки для крона
 local cron_time = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
-local cron_time1 = minut_new_b .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
+local cron_time1 = minut_new_b .. " " .. hour_data .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time2 = "07 11 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time3 = "07 23 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time4 = "14 03 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time5 = "14 15 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
---local cron_time6 = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
+local cron_time6 = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
 
 ---записать переменную в файл
 local cronFile = io.open("/var/spool/cron/crontabs/diver", "w");
@@ -49,7 +49,7 @@ cronFile:write (cron_time2, '\n');
 cronFile:write (cron_time3, '\n');
 cronFile:write (cron_time4, '\n');
 cronFile:write (cron_time5, '\n');
---cronFile:write (cron_time6, '\n');
+cronFile:write (cron_time6, '\n');
 
 cronFile:close();
---os.execute("chmod -R 777 /var/spool/cron/crontabs/diver");
+os.execute("chmod -R 777 /var/spool/cron/crontabs/diver");
