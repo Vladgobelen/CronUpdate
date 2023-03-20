@@ -10,6 +10,8 @@ local minut_plus = 30;
 local minut_plus_b = 5;
 local hour_plus = 2;
 local hour_plus_b = 3;
+local hour_bp = 1;
+local munut_bp = 60;
 --переменые для требуемого времени
 local hour_new;
 local minut_new;
@@ -25,12 +27,19 @@ else
     minut_new = minut_data + minut_plus;
 end
 --проверяем, не вышли ли часы за пределы циферблата
-if hour_new >= 23 then
+if hour_new > 23 then
     hour_data = 0
 else
 end
 ---добавяем +5 минут к текущему времени
 minut_new_b = minut_data + minut_plus_b;
+
+---проверка на переполнение циферблата
+if minut_new_b >59 then
+    hour_data = hour_data + hour_bp;
+    minut_new_b = minut_new_b - minut_bp;
+else
+end
 
 ---формируем строки для крона
 local cron_time = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
