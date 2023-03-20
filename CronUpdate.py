@@ -4,6 +4,8 @@ hourNew = (datetime.datetime.now() + datetime.timedelta(hours=2, minutes=30)).st
 minNewB = (datetime.datetime.now() + datetime.timedelta(hours=0, minutes=5)).strftime("%M")
 hourNewB = datetime.datetime.now().strftime("%H")
 cronNew = open('/var/spool/cron/crontabs/diver', 'w')
+#отладочный файл
+#cronNew = open('/home/diver/Скрипты/temp/testCron', 'w')
 
 cronNew.write(minNew + " " + hourNew + " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh" + "\n")
 cronNew.write(minNewB + " " + hourNewB + " * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh" + "\n")
