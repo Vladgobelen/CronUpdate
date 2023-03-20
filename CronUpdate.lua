@@ -24,12 +24,12 @@ else
     hour_new = hour_data + hour_plus;
     minut_new = minut_data + minut_plus;
 end
-
+--проверяем, не вышли ли часы за пределы циферблата
 if hour_new >= 23 then
     hour_data = 0
 else
 end
-
+---добавяем +5 минут к текущему времени
 minut_new_b = minut_data + minut_plus_b;
 
 ---формируем строки для крона
