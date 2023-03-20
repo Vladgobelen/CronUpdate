@@ -1,4 +1,4 @@
-#/bin/python
+#!/usr/bin/python
 import datetime
 
 crontab = r'''
@@ -15,7 +15,7 @@ now = datetime.datetime.now()
 time1 = now + datetime.timedelta(hours=2, minutes=30)
 time2 = now + datetime.timedelta(hours=0, minutes=5)
 
-with open('/home/diver/Скрипты/tmp/test', 'w') as f:
+with open('/home/diver/Скрипты/temp/test', 'w') as f:
     f.write(crontab.format(
         min1=time1.strftime("%M"),
         hours1=time1.strftime("%H"),

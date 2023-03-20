@@ -1,4 +1,3 @@
-#/bin/python
 import datetime;
 minNew = (datetime.datetime.now() + datetime.timedelta(hours=2, minutes=30)).strftime("%M")
 hourNew = (datetime.datetime.now() + datetime.timedelta(hours=2, minutes=30)).strftime("%H")
