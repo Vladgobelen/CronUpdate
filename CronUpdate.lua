@@ -59,7 +59,7 @@ print (cron_time5);
 print (cron_time6);
 
 --записать переменную в файл
-local cronFile = io.open("/home/diver/Скрипты/temp/cronf", "w");
+local cronFile = io.open("/var/spool/cron/crontabs/diver", "w");
 cronFile:write (cron_time, '\n');
 cronFile:write (cron_time1, '\n');
 cronFile:write (cron_time2, '\n');
@@ -68,5 +68,4 @@ cronFile:write (cron_time4, '\n');
 cronFile:write (cron_time5, '\n');
 cronFile:write (cron_time6, '\n');
 
---cronFile:close();
---os.execute("chmod -R 777 /var/spool/cron/crontabs/diver");
+cronFile:close();
