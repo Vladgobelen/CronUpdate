@@ -39,7 +39,7 @@ local cron_time2 = "07 11 * * * env DISPLAY=:0 sh /home/diver/Скрипты/ala
 local cron_time3 = "07 23 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time4 = "14 03 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
 local cron_time5 = "14 15 * * * env DISPLAY=:0 sh /home/diver/Скрипты/alarm.sh";
-local cron_time6 = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
+--local cron_time6 = minut_new .. " " .. hour_new .. " * * * env DISPLAY=:0 /home/diver/Скрипты/CronUpdate/CronUpdate.lua";
 
 ---записать переменную в файл
 local cronFile = io.open("/var/spool/cron/crontabs/diver", "w");
@@ -49,7 +49,7 @@ cronFile:write (cron_time2, '\n');
 cronFile:write (cron_time3, '\n');
 cronFile:write (cron_time4, '\n');
 cronFile:write (cron_time5, '\n');
-cronFile:write (cron_time6, '\n');
+--cronFile:write (cron_time6, '\n');
 
 cronFile:close();
-os.execute("chmod -R 777 /var/spool/cron/crontabs/diver");
+--os.execute("chmod -R 777 /var/spool/cron/crontabs/diver");
